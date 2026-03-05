@@ -1,0 +1,668 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════
+   檀木色系 · Rosewood Theme
+   ─────────────────────────────────────────────────────────────
+   主色调: 紫檀红棕 (Rosewood)
+   强调色: 檀香暖金 (Sandalwood Gold)
+   侧边栏: 深胡桃木 (Dark Walnut)
+   背景: 宣纸象牙白 (Rice Paper)
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── 基础 ── */
+  --color-border: hsl(25 18% 88%);
+  --color-input: hsl(25 18% 86%);
+  --color-ring: hsl(12 45% 42%);
+  --color-background: hsl(35 25% 97%);
+  --color-foreground: hsl(20 25% 12%);
+
+  /* ── 主色: 紫檀红棕 ── */
+  --color-primary: hsl(12 45% 42%);
+  --color-primary-foreground: hsl(35 30% 96%);
+
+  /* ── 次要 ── */
+  --color-secondary: hsl(30 18% 93%);
+  --color-secondary-foreground: hsl(20 25% 16%);
+
+  /* ── 破坏 ── */
+  --color-destructive: hsl(0 65% 50%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  /* ── 静默 ── */
+  --color-muted: hsl(30 15% 93%);
+  --color-muted-foreground: hsl(20 20% 25%);
+
+  /* ── 强调: 檀香暖金 ── */
+  --color-accent: hsl(36 72% 52%);
+  --color-accent-foreground: hsl(30 50% 10%);
+
+  /* ── 弹出 ── */
+  --color-popover: hsl(35 30% 99%);
+  --color-popover-foreground: hsl(20 25% 12%);
+
+  /* ── 卡片 ── */
+  --color-card: hsl(35 30% 99%);
+  --color-card-foreground: hsl(20 25% 12%);
+
+  /* ── 语义色 ── */
+  --color-success: hsl(152 55% 40%);
+  --color-success-foreground: hsl(0 0% 100%);
+  --color-warning: hsl(36 72% 52%);
+  --color-warning-foreground: hsl(30 50% 10%);
+  --color-income: hsl(152 55% 40%);
+  --color-expense: hsl(0 65% 50%);
+
+  /* ── 侧边栏: 深胡桃木 ── */
+  --color-sidebar: hsl(18 28% 11%);
+  --color-sidebar-foreground: hsl(30 20% 78%);
+  --color-sidebar-primary: hsl(12 45% 52%);
+  --color-sidebar-primary-foreground: hsl(35 30% 96%);
+  --color-sidebar-accent: hsl(18 22% 16%);
+  --color-sidebar-accent-foreground: hsl(30 18% 88%);
+  --color-sidebar-border: hsl(18 22% 18%);
+  --color-sidebar-ring: hsl(12 45% 52%);
+  --color-sidebar-muted: hsl(20 14% 56%);
+
+  /* ── 图表色板 ── */
+  --color-chart-1: hsl(12 45% 48%);
+  --color-chart-2: hsl(36 72% 52%);
+  --color-chart-3: hsl(195 55% 46%);
+  --color-chart-4: hsl(280 45% 52%);
+  --color-chart-5: hsl(152 55% 40%);
+
+  /* ── 圆角 ── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* ── 字体 ── */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ─── 暗色模式 (深檀木) ─── */
+.dark {
+  --color-border: hsl(18 20% 18%);
+  --color-input: hsl(18 20% 18%);
+  --color-ring: hsl(12 50% 55%);
+  --color-background: hsl(18 22% 8%);
+  --color-foreground: hsl(30 18% 90%);
+
+  --color-primary: hsl(12 50% 55%);
+  --color-primary-foreground: hsl(18 20% 8%);
+
+  --color-secondary: hsl(18 18% 16%);
+  --color-secondary-foreground: hsl(30 18% 90%);
+
+  --color-destructive: hsl(0 65% 42%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-muted: hsl(18 18% 16%);
+  --color-muted-foreground: hsl(20 14% 72%);
+
+  --color-accent: hsl(36 65% 58%);
+  --color-accent-foreground: hsl(30 50% 8%);
+
+  --color-popover: hsl(18 22% 10%);
+  --color-popover-foreground: hsl(30 18% 90%);
+
+  --color-card: hsl(18 20% 12%);
+  --color-card-foreground: hsl(30 18% 90%);
+
+  --color-success: hsl(152 55% 48%);
+  --color-warning: hsl(36 65% 58%);
+  --color-income: hsl(152 55% 48%);
+  --color-expense: hsl(0 65% 58%);
+
+  --color-sidebar: hsl(18 28% 6%);
+  --color-sidebar-foreground: hsl(30 16% 76%);
+  --color-sidebar-primary: hsl(12 50% 58%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(18 20% 13%);
+  --color-sidebar-accent-foreground: hsl(30 16% 88%);
+  --color-sidebar-border: hsl(18 20% 16%);
+  --color-sidebar-ring: hsl(12 50% 58%);
+  --color-sidebar-muted: hsl(20 14% 52%);
+
+  --color-chart-1: hsl(12 50% 55%);
+  --color-chart-2: hsl(36 65% 58%);
+  --color-chart-3: hsl(195 60% 55%);
+  --color-chart-4: hsl(280 50% 60%);
+  --color-chart-5: hsl(152 55% 48%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  /* 檀木纹理装饰线 */
+  .wood-grain-border {
+    border-image: linear-gradient(
+      135deg,
+      hsl(12 45% 42%) 0%,
+      hsl(25 40% 50%) 25%,
+      hsl(12 45% 38%) 50%,
+      hsl(30 35% 48%) 75%,
+      hsl(12 45% 42%) 100%
+    ) 1;
+  }
+
+  /* 暖光渐变背景 */
+  .warm-glow {
+    background: radial-gradient(
+      ellipse at top right,
+      hsl(36 72% 52% / 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom left,
+      hsl(12 45% 42% / 0.04) 0%,
+      transparent 60%
+    );
+  }
+  .dark .warm-glow {
+    background: radial-gradient(
+      ellipse at top right,
+      hsl(36 65% 58% / 0.04) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom left,
+      hsl(12 50% 55% / 0.03) 0%,
+      transparent 60%
+    );
+  }
+
+  /* 精致卡片悬浮效果 */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 25px -5px hsl(12 45% 42% / 0.08),
+      0 4px 10px -3px hsl(12 45% 42% / 0.04);
+  }
+
+  /* 檀木印章装饰 */
+  .stamp-seal {
+    position: relative;
+  }
+  .stamp-seal::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 28px;
+    height: 28px;
+    border: 2px solid hsl(12 45% 42% / 0.3);
+    border-radius: 4px;
+    transform: rotate(12deg);
+  }
+
+  /* 金色分隔线 */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(36 72% 52% / 0.4) 20%,
+      hsl(36 72% 52% / 0.6) 50%,
+      hsl(36 72% 52% / 0.4) 80%,
+      transparent 100%
+    );
+  }
+
+  /* 数字金额样式 */
+  .amount-display {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* 微妙纹理背景 */
+  .texture-paper {
+    background-image:
+      radial-gradient(circle at 20% 35%, hsl(36 72% 52% / 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, hsl(12 45% 42% / 0.025) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a0876c' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* 手工印章 - 竖排文字效果 */
+  .seal-stamp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid hsl(12 45% 42% / 0.6);
+    border-radius: 4px;
+    color: hsl(12 45% 42%);
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--font-display);
+    transform: rotate(-5deg);
+    position: relative;
+  }
+  .seal-stamp::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    border: 1px solid hsl(12 45% 42% / 0.2);
+    border-radius: 2px;
+  }
+
+  /* 水墨渲染装饰 */
+  .ink-wash {
+    position: relative;
+    overflow: hidden;
+  }
+  .ink-wash::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+      ellipse,
+      hsl(12 45% 42% / 0.04) 0%,
+      hsl(12 45% 42% / 0.02) 30%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* 金丝镶边卡片 */
+  .gold-frame {
+    position: relative;
+    border: 1px solid hsl(36 72% 52% / 0.2);
+  }
+  .gold-frame::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 1px solid hsl(36 72% 52% / 0.08);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* 文字质感 - 高对比度强调文字 */
+  .text-rich {
+    color: hsl(20 30% 15%);
+    text-shadow: 0 0 1px hsl(20 25% 12% / 0.05);
+  }
+  .dark .text-rich {
+    color: hsl(30 22% 92%);
+    text-shadow: none;
+  }
+
+  /* 标签文字增强 */
+  .label-enhanced {
+    color: hsl(20 20% 24%);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  .dark .label-enhanced {
+    color: hsl(30 16% 72%);
+  }
+
+  /* 说明文字 - 比muted更可读 */
+  .text-readable {
+    color: hsl(20 20% 18%);
+    line-height: 1.7;
+  }
+  .dark .text-readable {
+    color: hsl(20 12% 75%);
+  }
+
+  /* ── 高端卡片 - 内嵌微光边框 ── */
+  .card-premium {
+    position: relative;
+    border: 1px solid hsl(25 18% 88%);
+    background:
+      linear-gradient(135deg, hsl(35 30% 99%) 0%, hsl(35 25% 97%) 100%);
+    box-shadow:
+      0 1px 3px hsl(12 45% 42% / 0.04),
+      inset 0 1px 0 hsl(36 72% 52% / 0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-premium:hover {
+    border-color: hsl(36 72% 52% / 0.25);
+    box-shadow:
+      0 8px 30px -8px hsl(12 45% 42% / 0.08),
+      0 2px 8px -2px hsl(36 72% 52% / 0.06),
+      inset 0 1px 0 hsl(36 72% 52% / 0.12);
+    transform: translateY(-1px);
+  }
+  .dark .card-premium {
+    border-color: hsl(18 20% 18%);
+    background:
+      linear-gradient(135deg, hsl(18 20% 13%) 0%, hsl(18 20% 11%) 100%);
+    box-shadow:
+      0 1px 3px hsl(0 0% 0% / 0.2),
+      inset 0 1px 0 hsl(36 65% 58% / 0.06);
+  }
+  .dark .card-premium:hover {
+    border-color: hsl(36 65% 58% / 0.2);
+    box-shadow:
+      0 8px 30px -8px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(36 65% 58% / 0.1);
+  }
+
+  /* ── 数据指标卡片 - 左侧彩色标记线 ── */
+  .card-metric {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-metric::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: 12px;
+    left: 0;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: var(--metric-color, hsl(12 45% 42%));
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+  .card-metric:hover::before {
+    opacity: 1;
+  }
+
+  /* ── 页面标题区域装饰 ── */
+  .page-header {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      hsl(12 45% 42% / 0.15) 0%,
+      hsl(36 72% 52% / 0.3) 30%,
+      hsl(36 72% 52% / 0.3) 70%,
+      hsl(12 45% 42% / 0.15) 100%
+    );
+  }
+  .dark .page-header::after {
+    background: linear-gradient(
+      90deg,
+      hsl(12 50% 55% / 0.1) 0%,
+      hsl(36 65% 58% / 0.2) 30%,
+      hsl(36 65% 58% / 0.2) 70%,
+      hsl(12 50% 55% / 0.1) 100%
+    );
+  }
+
+  /* ── 精致列表项 - 微妙左边框 + 悬停光晕 ── */
+  .list-item-refined {
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-item-refined::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background: hsl(12 45% 42% / 0.5);
+    border-radius: 2px;
+    transform: translateY(-50%);
+    transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-item-refined:hover {
+    background: hsl(36 72% 52% / 0.03);
+  }
+  .dark .list-item-refined:hover {
+    background: hsl(36 65% 58% / 0.06);
+  }
+  .dark .list-item-refined::before {
+    background: hsl(12 50% 55% / 0.5);
+  }
+  .list-item-refined:hover::before {
+    height: 60%;
+  }
+
+  /* ── 内发光装饰效果 ── */
+  .inner-glow {
+    box-shadow:
+      inset 0 1px 1px hsl(36 72% 52% / 0.06),
+      inset 0 -1px 1px hsl(12 45% 42% / 0.03);
+  }
+
+  /* ── 精致图标容器 ── */
+  .icon-vessel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow:
+      0 1px 2px hsl(12 45% 42% / 0.06),
+      inset 0 1px 0 hsl(0 0% 100% / 0.5);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .icon-vessel:hover {
+    transform: scale(1.04);
+  }
+
+  /* ── 章节标签 - 小型金色标签 ── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.125rem 0.625rem;
+    background: linear-gradient(135deg, hsl(36 72% 52% / 0.1), hsl(36 72% 52% / 0.05));
+    border: 1px solid hsl(36 72% 52% / 0.15);
+    border-radius: 6px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: hsl(25 40% 28%);
+    letter-spacing: 0.02em;
+  }
+  .dark .section-label {
+    background: linear-gradient(135deg, hsl(36 65% 58% / 0.1), hsl(36 65% 58% / 0.05));
+    border-color: hsl(36 65% 58% / 0.15);
+    color: hsl(30 35% 65%);
+  }
+
+  /* ── 浮雕式统计数字 ── */
+  .stat-emboss {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    text-shadow: 0 1px 0 hsl(0 0% 100% / 0.4);
+  }
+  .dark .stat-emboss {
+    text-shadow: 0 1px 2px hsl(0 0% 0% / 0.3);
+  }
+
+  /* ── 精致徽章 ── */
+  .badge-refined {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.625rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.01em;
+    box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.15);
+  }
+
+  /* ── 高端分隔线 - 双线装饰 ── */
+  .divider-ornate {
+    position: relative;
+    height: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .divider-ornate::before,
+  .divider-ornate::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+  .divider-ornate::before {
+    top: 0;
+    background: linear-gradient(90deg, transparent 0%, hsl(25 18% 88%) 20%, hsl(36 72% 52% / 0.3) 50%, hsl(25 18% 88%) 80%, transparent 100%);
+  }
+  .divider-ornate::after {
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, hsl(25 18% 88% / 0.5) 30%, hsl(25 18% 88% / 0.5) 70%, transparent 100%);
+  }
+  .dark .divider-ornate::before {
+    background: linear-gradient(90deg, transparent 0%, hsl(18 20% 22%) 20%, hsl(36 65% 58% / 0.3) 50%, hsl(18 20% 22%) 80%, transparent 100%);
+  }
+  .dark .divider-ornate::after {
+    background: linear-gradient(90deg, transparent 0%, hsl(18 20% 22% / 0.5) 30%, hsl(18 20% 22% / 0.5) 70%, transparent 100%);
+  }
+
+  /* ── 菱形装饰点 ── */
+  .diamond-dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: hsl(36 72% 52% / 0.5);
+    transform: rotate(45deg);
+    border-radius: 1px;
+  }
+
+  /* ── 高光图表容器 ── */
+  .chart-vessel {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .chart-vessel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, hsl(36 72% 52% / 0.2) 30%, hsl(36 72% 52% / 0.2) 70%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* ── 操作按钮容器 - 磨砂背景 ── */
+  .action-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem;
+    background: hsl(30 15% 93% / 0.6);
+    border: 1px solid hsl(25 18% 88% / 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+  }
+  .dark .action-bar {
+    background: hsl(18 18% 16% / 0.6);
+    border-color: hsl(18 20% 18% / 0.5);
+  }
+
+  /* 滚动条美化 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(20 14% 48% / 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(20 14% 48% / 0.5);
+  }
+
+  /* 深色模式表格样式 */
+  .dark table thead tr {
+    background: hsl(18 18% 14%) !important;
+  }
+  .dark table tbody tr:hover {
+    background: hsl(18 18% 16%) !important;
+  }
+
+  /* 深色模式下的金丝分隔线 */
+  .dark .gold-divider {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(36 65% 58% / 0.3) 20%,
+      hsl(36 65% 58% / 0.5) 50%,
+      hsl(36 65% 58% / 0.3) 80%,
+      transparent 100%
+    );
+  }
+
+  /* 深色模式下的内发光 */
+  .dark .inner-glow {
+    box-shadow:
+      inset 0 1px 1px hsl(36 65% 58% / 0.04),
+      inset 0 -1px 1px hsl(12 50% 55% / 0.02);
+  }
+
+  /* 深色模式图标容器 */
+  .dark .icon-vessel {
+    box-shadow:
+      0 1px 2px hsl(0 0% 0% / 0.15),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
+  }
+
+  /* 深色模式下的水墨装饰 */
+  .dark .ink-wash::before {
+    background: radial-gradient(
+      ellipse,
+      hsl(12 50% 55% / 0.03) 0%,
+      hsl(12 50% 55% / 0.015) 30%,
+      transparent 70%
+    );
+  }
+
+  /* 深色模式纹理背景 */
+  .dark .texture-paper {
+    background-image:
+      radial-gradient(circle at 20% 35%, hsl(36 65% 58% / 0.02) 0%, transparent 50%),
+      radial-gradient(circle at 80% 60%, hsl(12 50% 55% / 0.015) 0%, transparent 50%);
+  }
+
+  /* 深色模式金丝镶边 */
+  .dark .gold-frame {
+    border-color: hsl(36 65% 58% / 0.15);
+  }
+  .dark .gold-frame::before {
+    border-color: hsl(36 65% 58% / 0.06);
+  }
+}
