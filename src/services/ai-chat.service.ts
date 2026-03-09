@@ -351,7 +351,7 @@ async function parseInventoryOperation(content: string): Promise<{
   // 提取商品名称
   // 简单规则：匹配数量和单价之间的文本
   let productName = '未知商品'
-  if (quantityMatch && priceMatch) {
+  if (quantityMatch && priceMatch && quantityMatch.index !== undefined && priceMatch.index !== undefined) {
     const start = quantityMatch.index + quantityMatch[0].length
     const end = priceMatch.index
     productName = content.substring(start, end).trim()

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, PackagePlus, Plus } from 'lucide-react'
+import { ArrowLeft, PackagePlus } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -75,7 +75,7 @@ export default function StockInPage() {
           unitPrice: price,
           currentStock: qty,
           minStockAlert: parseInt(newProductMinStock) || 10,
-          status: 'active'
+          isActive: true
         })
         
         productId = newProduct.id

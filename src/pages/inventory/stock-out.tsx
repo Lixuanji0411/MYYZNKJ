@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ShoppingCart, Plus } from 'lucide-react'
+import { ArrowLeft, ShoppingCart } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -77,7 +77,7 @@ export default function StockOutPage() {
           unitPrice: price,
           currentStock: 0, // 新商品初始库存为0
           minStockAlert: parseInt(newProductMinStock) || 10,
-          status: 'active'
+          isActive: true
         })
         
         productId = newProduct.id
